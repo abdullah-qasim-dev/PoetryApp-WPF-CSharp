@@ -1,0 +1,49 @@
+﻿<Window x:Class="SE_project_2025.SubmitPoetryWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SE_project_2025"
+        mc:Ignorable="d"
+        Title="SubmitPoetryWindow" Height="450" Width="800">
+    <Grid>
+        <!-- Background Image -->
+        <Image Source="/images/Home_background.jpg" Stretch="Fill" Panel.ZIndex="-1"/>
+
+        <Border Background="White" CornerRadius="15" Padding="20" Margin="30">
+            <StackPanel Margin="0,6,0,-6">
+
+                <TextBlock Text="Submit Your Poetry" FontSize="22" FontWeight="Bold" Margin="0,0,0,15" HorizontalAlignment="Center"/>
+
+                <!-- Poetry Title -->
+                <TextBlock Text="Poetry Title:" FontWeight="Bold"/>
+                <TextBox x:Name="txtTitle" Height="25" Margin="0,5,0,10"/>
+
+                <!-- Poetry Text -->
+                <TextBlock Text="Poetry Text:" FontWeight="Bold"/>
+                <TextBox x:Name="txtPoetry" Height="100" AcceptsReturn="True" TextWrapping="Wrap" Margin="0,5,0,10"/>
+
+                <!-- Genre -->
+                <TextBlock Text="Genre:" FontWeight="Bold"/>
+                <ComboBox x:Name="comboGenre" Height="25" Margin="0,5,0,10">
+                    <ComboBoxItem Content="Nazm"/>
+                    <ComboBoxItem Content="Ghazal"/>
+                    <ComboBoxItem Content="Marsiya"/>
+                    <ComboBoxItem Content="Qasida"/>
+                    <ComboBoxItem Content="Rubai"/>
+                    <ComboBoxItem Content="Hamd"/>
+                    <ComboBoxItem Content="Naat"/>
+                </ComboBox>
+
+                <!-- Theme -->
+                <TextBlock Text="Theme:" FontWeight="Bold"/>
+                <TextBox x:Name="txtTheme" Height="25" Margin="0,5,0,10"/>
+
+                <!-- Submit Button -->
+                <Button Content="Submit Poetry" Height="35" Width="150" HorizontalAlignment="Center" Background="#8B4513" Foreground="White" FontWeight="Bold" Click="Submit_Click"/>
+
+            </StackPanel>
+        </Border>
+    </Grid>
+
+</Window>

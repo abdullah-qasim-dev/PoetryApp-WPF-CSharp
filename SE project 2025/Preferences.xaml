@@ -1,0 +1,30 @@
+﻿<Window x:Class="SE_project_2025.Preferences"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                ResizeMode="NoResize"
+        Title="Select Preferences" Height="500" Width="720">
+
+    <Window.Background>
+        <ImageBrush ImageSource="/images/Home_background.jpg" Stretch="Fill"/>
+    </Window.Background>
+
+    <Grid>
+        <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock Text="شہرِ سخن" FontSize="24" FontWeight="Bold"
+                       Foreground="Black" FontFamily="Jameel Noori Nastaleeq"
+                       TextAlignment="Center" Margin="10"/>
+
+            <TextBlock Text="Select 3 Preferred Poets" FontSize="18" FontWeight="Bold"
+                       Foreground="Black" Margin="10" TextAlignment="Center"/>
+
+            <ScrollViewer Height="300" VerticalScrollBarVisibility="Auto" Margin="10">
+                <WrapPanel x:Name="PoetsWrapPanel" />
+            </ScrollViewer>
+
+            <Button x:Name="ProceedButton" Content="Proceed" Width="100" Height="30"
+        Background="Blue" Foreground="White"
+        Click="ProceedButton_Click" Margin="10"/>
+
+        </StackPanel>
+    </Grid>
+</Window>

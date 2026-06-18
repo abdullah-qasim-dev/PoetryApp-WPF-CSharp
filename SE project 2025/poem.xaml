@@ -1,0 +1,82 @@
+﻿<Window x:Class="SE_project_2025.poem"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Poetry Page" Height="500" Width="800"
+        WindowStartupLocation="CenterScreen"
+               ResizeMode="NoResize"
+
+        WindowStyle="SingleBorderWindow"
+        ShowInTaskbar="True">
+
+    <!-- Background Image -->
+    <Window.Background>
+        <ImageBrush ImageSource="/images/Home_background.jpg" Stretch="Fill"/>
+    </Window.Background>
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="20">
+
+            <!-- Left Info Section -->
+            <Border Background="#FFFDF4E3" CornerRadius="15" Margin="0,40,15,200" Padding="15" Width="310">
+                <StackPanel>
+                   
+                    <TextBlock Text="Poet Name:" FontWeight="Bold" FontSize="15"/>
+                    <TextBlock FontStyle="Oblique" x:Name="txtPoetName" FontSize="16" Foreground="Black"  Margin="0,0,0,10"/>
+
+                    <TextBlock Text="Theme:" FontWeight="Bold" FontSize="15"/>
+                    <TextBlock FontStyle="Oblique" x:Name="txtTheme" FontSize="16" Foreground="Black" Margin="0,0,0,10"/>
+
+                    <TextBlock Text="Genre:" FontWeight="Bold" FontSize="15" />
+                    <TextBlock FontStyle="Oblique" x:Name="txtGenre" FontSize="16" Foreground="Black" Margin="0,0,0,10"/>
+
+                    <TextBlock Text="Language:" FontWeight="Bold" FontSize="15"/>
+                    <TextBlock FontStyle="Oblique" x:Name="txtLanguage" FontSize="16" Foreground="Black" Margin="0,0,0,10"/>
+
+                    <!-- Play/Pause Audio Button -->
+                    <Button x:Name="btnPlayPauseAudio"
+                            Content="▶ Play Audio"
+                            Width="160"
+                            Height="35"
+                            Margin="0,20,0,0"
+                            Background="#4682B4"
+                            Foreground="White"
+                            FontWeight="Bold"
+                            Click="btnPlayPauseAudio_Click"/>
+
+
+                    <Button Content="⬅ Back"
+                            Width="160"
+                            Height="35"
+                            Margin="0,10,0,0"
+                            Background="#8B0000"
+                            Foreground="White"
+                            FontWeight="Bold"
+                            Click="back_click"/>
+                </StackPanel>
+            </Border>
+
+            <!-- Right Poem Text Section -->
+            <Border Background="#FFFFD1A1" CornerRadius="15" Margin="15,40,0,40" Padding="15" Width="350">
+
+                <StackPanel>
+                    <!-- Move Title here -->
+                    <TextBlock x:Name="txtPoemTitle"
+                   FontSize="20"
+                   FontWeight="Bold"
+                   Foreground="Black"
+                   TextWrapping="Wrap"
+                   TextAlignment="Center"
+                   Margin="0,0,0,10"/>
+
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" Height="300">
+                        <TextBlock x:Name="txtPoemContent"
+                       Text=""
+                       TextWrapping="Wrap"
+                       FontSize="16"
+                       Foreground="Black"/>
+                    </ScrollViewer>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</Window>

@@ -1,0 +1,187 @@
+﻿<Window x:Class="SE_project_2025.Poet_page"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Poets Window" 
+        Height="500" Width="720"
+        WindowStartupLocation="CenterScreen"
+                ResizeMode="NoResize"
+        WindowStyle="SingleBorderWindow"
+        ShowInTaskbar="True">
+
+    <!-- Background Image -->
+    <Window.Background>
+        <ImageBrush ImageSource="/images/Home_background.jpg" Stretch="Fill"/>
+    </Window.Background>
+
+
+    <Grid >
+        
+        
+        
+        
+        <!-- Horizontal 30-30-40 layout -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="4*"/>
+        </Grid.RowDefinitions>
+
+      
+
+        <!-- Column 1: All Poet Info -->
+        <StackPanel Margin="0,30,555,0" VerticalAlignment="Center" Height="138">
+            <!-- Poet Image -->
+            <Image x:Name="PoetImage"
+                   Width="70" Height="70"
+                   HorizontalAlignment="Left" Stretch="Fill" Margin="40,40,0,0">
+                <Image.Clip>
+                    <EllipseGeometry Center="50,50" RadiusX="50" RadiusY="50"/>
+                </Image.Clip>
+            </Image>
+
+            <!-- Add Button below the Image -->
+           
+        </StackPanel>
+
+        <StackPanel Grid.Row="0" Margin="175,25,52,-20" VerticalAlignment="Top" Height="150">
+            <!-- Poet Name -->
+            <StackPanel Orientation="Horizontal" Margin="0,2,0,10">
+                <TextBlock Text="Name:" FontSize="18" FontWeight="Bold" Foreground="Black" VerticalAlignment="Center"/>
+                <TextBlock x:Name="PoetName" Text="Poet's Name" FontSize="18" Foreground="Black" VerticalAlignment="Center" Margin="50,0,0,0"/>
+            </StackPanel>
+
+            <!-- Poet Era -->
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock Text="Era:" FontSize="18" FontWeight="Bold" Foreground="Black" VerticalAlignment="Center"/>
+                <TextBlock x:Name="PoetEra" Text="Poet's Era" FontSize="18" Foreground="Black" VerticalAlignment="Center" Margin="75,0,0,0"/>
+            </StackPanel>
+
+            <!-- Poet Bio -->
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock Text="Bio:" FontSize="18" FontWeight="Bold" Foreground="Black" VerticalAlignment="Center"/>
+                <TextBlock x:Name="PoetBio" Text="Poet's Bio" FontSize="18" Foreground="Black" VerticalAlignment="Center" Margin="73,0,0,0"/>
+            </StackPanel>
+
+            <!-- Poet Timeline -->
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock Text="Timeline:" FontSize="18" FontWeight="Bold" Foreground="Black" VerticalAlignment="Center"/>
+                <TextBlock x:Name="PoetTimeLine" Text="Poet's Timeline" FontSize="18" Foreground="Black" VerticalAlignment="Center" Margin="26,0,0,0"/>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Margin="5,53,355,0" VerticalAlignment="Top" Height="130">
+            <TextBlock Text="Themes" FontWeight="Bold" VerticalAlignment="Center" FontSize="16" HorizontalAlignment="Left" Margin="150,0,10,0"/>
+            <ComboBox x:Name="ThemeDropdown" Foreground="Black" Background="White" Width="200" FontSize="16" BorderBrush="#888" BorderThickness="1" Padding="4">
+                <ComboBox.ItemContainerStyle>
+                    <Style TargetType="ComboBoxItem">
+                        <Setter Property="Foreground" Value="#2C3E50"/>
+                        <Setter Property="Background" Value="White"/>
+                        <Setter Property="Padding" Value="8,4"/>
+                        <Setter Property="Margin" Value="2"/>
+                        <Setter Property="FontWeight" Value="SemiBold"/>
+                        <Setter Property="BorderBrush" Value="Transparent"/>
+                        <Setter Property="BorderThickness" Value="1"/>
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="ComboBoxItem">
+                                    <Border x:Name="Border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1" CornerRadius="6" Padding="{TemplateBinding Padding}">
+                                        <ContentPresenter />
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="Border" Property="Background" Value="#F0F8FF"/>
+                                            <Setter TargetName="Border" Property="BorderBrush" Value="#3498DB"/>
+                                        </Trigger>
+                                        <Trigger Property="IsSelected" Value="True">
+                                            <Setter TargetName="Border" Property="Background" Value="#D6EAF8"/>
+                                            <Setter Property="Foreground" Value="Black"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ComboBox.ItemContainerStyle>
+            </ComboBox>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Margin="370,53,5,0" VerticalAlignment="Top" Height="130">
+            <TextBlock Text="Poem Names:" FontWeight="Bold" VerticalAlignment="Center" FontSize="16" HorizontalAlignment="Center" Margin="20,0,10,0"/>
+            <ComboBox x:Name="Namedropdown" Foreground="Black" Background="White" Width="200" FontSize="16" BorderBrush="#888" BorderThickness="1" Padding="4">
+                <ComboBox.ItemContainerStyle>
+                    <Style TargetType="ComboBoxItem">
+                        <Setter Property="Foreground" Value="#2C3E50"/>
+                        <Setter Property="Background" Value="White"/>
+                        <Setter Property="Padding" Value="8,4"/>
+                        <Setter Property="Margin" Value="2"/>
+                        <Setter Property="FontWeight" Value="SemiBold"/>
+                        <Setter Property="BorderBrush" Value="Transparent"/>
+                        <Setter Property="BorderThickness" Value="1"/>
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="ComboBoxItem">
+                                    <Border x:Name="Border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1" CornerRadius="6" Padding="{TemplateBinding Padding}">
+                                        <ContentPresenter />
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="Border" Property="Background" Value="#F0F8FF"/>
+                                            <Setter TargetName="Border" Property="BorderBrush" Value="#3498DB"/>
+                                        </Trigger>
+                                        <Trigger Property="IsSelected" Value="True">
+                                            <Setter TargetName="Border" Property="Background" Value="#D6EAF8"/>
+                                            <Setter Property="Foreground" Value="Black"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ComboBox.ItemContainerStyle>
+            </ComboBox>
+        </StackPanel>
+
+        <!-- Updated Top 5 Poems Section -->
+        <StackPanel Grid.Row="2" Margin="120,-30,0,0" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <TextBlock Text="Top 5 Poems :" HorizontalAlignment="Left" FontWeight="Bold" FontSize="20" Margin="150,0,120,10"/>
+
+            <Border Background="White" Width="230" BorderThickness="0" Margin="0,5,0,0">
+                <Button Name="Button1" Content="Poem 1" Width="230" Height="30" FontSize="16" FontWeight="Bold" Background="Transparent" BorderThickness="0" Foreground="Black" Click="btn_top1" FontStyle="Oblique"/>
+            </Border>
+
+            <Border Background="White" Width="230" BorderThickness="0" Margin="0,5,0,0">
+                <Button Name="Button2" Content="Poem 2" Width="230" Height="30" FontSize="16" FontWeight="Bold" Background="Transparent" BorderThickness="0" Foreground="Black" Click="btn_top2" FontStyle="Oblique"/>
+            </Border>
+
+            <Border Background="White" Width="230" BorderThickness="0" Margin="0,5,0,0">
+                <Button Name="Button3" Content="Poem 3" Width="230" Height="30" FontSize="16" FontWeight="Bold" Background="Transparent" BorderThickness="0" Foreground="Black" Click="btn_top3" FontStyle="Oblique"/>
+            </Border>
+
+            <Border Background="White" Width="230" BorderThickness="0" Margin="0,5,0,0">
+                <Button Name="Button4" Content="Poem 4" Width="230" Height="30" FontSize="16" FontWeight="Bold" Background="Transparent" BorderThickness="0" Foreground="Black" Click="btn_top4" FontStyle="Oblique"/>
+            </Border>
+
+            <Border Background="White" Width="230" BorderThickness="0" Margin="0,5,0,0">
+                <Button Name="Button5" Content="Poem 5" Width="230" Height="30" FontSize="16" FontWeight="Bold" Background="Transparent" BorderThickness="0" Foreground="Black" Click="btn_top5" FontStyle="Oblique"/>
+            </Border>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Margin="400,100,0,0" VerticalAlignment="Top" Height="84">
+            <Button Content="⬅ Back"
+  Width="160"
+  Height="35"
+  Margin="0,10,0,0"
+  Background="#8B0000"
+  Foreground="White"
+  FontWeight="Bold"
+  Click="back_click_poem"/>
+        </StackPanel>
+
+        <!-- Transparent placeholders -->
+        <Border Grid.Column="1" Background="Transparent"/>
+        <Border Background="Transparent" Margin="0,18,0,100" Grid.RowSpan="2"/>
+    </Grid>
+</Window>
+

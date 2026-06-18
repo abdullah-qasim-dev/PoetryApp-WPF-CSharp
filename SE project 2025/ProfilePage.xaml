@@ -1,0 +1,81 @@
+﻿<Window x:Class="SE_project_2025.ProfilePage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Profile Page" 
+        Height="500" Width="800"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        WindowStyle="SingleBorderWindow"
+        ShowInTaskbar="True">
+
+    <Grid>
+        <!-- Background Image -->
+        <Image Source="/images/Home_background.jpg" 
+               Stretch="Fill" Panel.ZIndex="-1"/>
+
+        <!-- Main Profile Layout inside Border -->
+        <Border Background="Transparent" CornerRadius="10" Padding="20" Margin="20,0,10,20">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Left Section: Profile Picture and Stats -->
+                <Grid Margin="20,-60,0,0">
+                    <!-- Back Button (Placed at Bottom Left) -->
+                    <Border Background="#DC143C" Width="120"  BorderThickness="0" Margin="150,410,0,20">
+                        <Button Click="back_button_Click" Content="Back" Width="120" Height="35" FontSize="14" FontWeight="Bold" 
+                                Background="Transparent" BorderThickness="0" Foreground="White"/>
+                    </Border>
+
+                    <!-- Main StackPanel for User Details & Buttons -->
+                    <StackPanel VerticalAlignment="Center" Margin="150,-10,0,0">
+                        <!-- User Details -->
+                        <TextBlock x:Name="lblUserName" FontSize="28" FontWeight="Bold" Foreground="White" Margin="0,10,0,0" HorizontalAlignment="Center"/>
+                        <TextBlock x:Name="lblUserEmail" Foreground="White" FontSize="16" HorizontalAlignment="Center"/>
+
+                        <!-- Buttons -->
+                        <Border Background="White" Width="200" BorderThickness="0" Margin="0,15,0,0">
+                            <Button Content="View Saved Poetry" Width="200" Height="50" FontSize="14" FontWeight="Bold" 
+                                    Background="Transparent" BorderThickness="0" Foreground="Black"/>
+                        </Border>
+
+                        <Border Background="White" Width="200" BorderThickness="0" Margin="0,15,0,0">
+                            <Button Content="My Poems" Width="200" Height="50" FontSize="14" FontWeight="Bold" 
+                                    Background="Transparent" BorderThickness="0" Foreground="Black"/>
+                        </Border>
+
+                        <Border Background="White" Width="200" BorderThickness="0" Margin="0,15,0,0">
+                            <Button Content="View Saved Poets" Width="200" Height="50" FontSize="14" FontWeight="Bold" 
+                                    Background="Transparent" BorderThickness="0" Foreground="Black"/>
+                        </Border>
+
+                        <Border Background="White" Width="200" BorderThickness="0" Margin="0,15,0,0">
+                            <Button Content="View Preferences" Width="200" Height="50" FontSize="14" FontWeight="Bold" 
+                                    Background="Transparent" BorderThickness="0" Foreground="Black"/>
+                        </Border>
+                    </StackPanel>
+                </Grid>
+
+                <!-- Right Section: Settings + Contest Box -->
+                <StackPanel VerticalAlignment="Top" Margin="398,0,-19,0" RenderTransformOrigin="0.84,1.419" Grid.ColumnSpan="2">
+                    <TextBlock Text="User Profile" Foreground="Black" Background="Transparent" Margin="30,-20,0,20" FontSize="25" FontWeight="Bold"/>
+
+                    <!-- Settings Button -->
+                    <Button x:Name="settings" HorizontalAlignment="Right" BorderThickness="0" Margin="0,-10,0,0" Background="Transparent"
+                            Click="settings_Click" Width="49" Height="38">
+                        <Image Source="images/setting.png" Width="49" Height="34"/>
+                    </Button>
+
+                    <!-- Contest Announcements -->
+                    <TextBlock Text="Active Contests" FontSize="20" FontWeight="Bold" Margin="100,30,0,10" Foreground="Black"/>
+                    <ScrollViewer Height="200" Margin="30,0,20,0">
+                        <StackPanel x:Name="contestContainer" Margin="30,0,10,10" />
+                    </ScrollViewer>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

@@ -1,0 +1,93 @@
+﻿<Window x:Class="SE_project_2025.AdminDashboard"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Title="Admin Dashboard" Height="800" Width="720">
+
+    <Window.Background>
+        <ImageBrush ImageSource="images/home_background.jpg"/>
+    </Window.Background>
+
+    <Grid Margin="10">
+
+        <!-- Dashboard Title -->
+        <TextBlock Text="Admin Dashboard" FontSize="24" FontWeight="Bold" 
+                   Foreground="Black" HorizontalAlignment="Center" 
+                   VerticalAlignment="Top" Margin="0,5,0,0"/>
+
+        <!-- Buttons Row: Load Users, Load Admins, Announce Contest -->
+        <Grid HorizontalAlignment="Stretch" Margin="10,40,10,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Orientation="Horizontal" Grid.Column="0" HorizontalAlignment="Left" Margin="0,-370,-30,0">
+                <Button Name="btnLoadUsers" Content="Load Users" Width="130" Height="30"
+                        Click="btnLoadUsers_Click" FontWeight="Bold" Margin="10,0,5,0"/>
+                <Button Name="btnLoadAdmins" Content="Load Admins" Width="130" Height="30"
+                        Click="btnLoadAdmins_Click" FontWeight="Bold"/>
+            </StackPanel>
+
+            <Button Name="btnAnnounceContest" Content="Announce Contest" Width="160" Height="30"
+                    Click="btnAnnounceContest_Click" FontWeight="Bold" 
+                    HorizontalAlignment="Right" Grid.Column="2" Margin="0,-370,10,0"/>
+        </Grid>
+
+        <!-- Title Label -->
+        <Label Name="lblTableTitle" Content="User Information" FontSize="16" FontWeight="Bold"
+               HorizontalAlignment="Center" Margin="0,80,0,0" Foreground="Black"/>
+
+        <!-- Data Grid -->
+        <DataGrid Name="usersDataGrid" Margin="15,100,15,147"
+                  SelectionChanged="usersDataGrid_SelectionChanged" AutoGenerateColumns="False" 
+                  FontWeight="Bold" Height="170" Background="White">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Full Name" Binding="{Binding FullName}" Width="*"/>
+                <DataGridTextColumn Header="Username" Binding="{Binding Username}" Width="*"/>
+                <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="*"/>
+                <DataGridTextColumn Header="Password" Binding="{Binding Password}" Visibility="Hidden"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!-- Contest Announcement Form (Initially Hidden) -->
+        <StackPanel Name="ContestFormPanel" Visibility="Collapsed" Margin="0,275,15,0">
+            <Border Background="#FFFBE9C6" CornerRadius="10" Padding="10">
+                <StackPanel>
+                    <TextBlock Text="Announce New Contest" FontSize="18" FontWeight="Bold" Margin="0,0,0,10"/>
+
+                    <TextBlock Text="Title:" FontWeight="Bold"/>
+                    <TextBox Name="txtContestTitle" Height="25"/>
+
+                    <TextBlock Text="Start Date:" FontWeight="Bold" Margin="0,10,0,0"/>
+                    <DatePicker Name="dpStartDate"/>
+
+                    <TextBlock Text="End Date:" FontWeight="Bold" Margin="0,10,0,0"/>
+                    <DatePicker Name="dpEndDate"/>
+
+                    <Button Content="Submit Contest" Width="140" Height="30" 
+                            Click="btnSubmitContest_Click" FontWeight="Bold" 
+                            Margin="0,15,0,0" HorizontalAlignment="Left"/>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+
+        <!-- User Details Section -->
+        <Border Background="#FFDFD6B6" CornerRadius="8" Margin="15,300,15,0" Height="210" Padding="4">
+            <StackPanel>
+                <Label Content="First Name:" FontSize="13" FontWeight="Bold"/>
+                <TextBox x:Name="txtFirstName" IsReadOnly="True" Height="25"/>
+
+                <Label Content="Username:" FontSize="13" FontWeight="Bold"/>
+                <TextBox x:Name="txtUsername" IsReadOnly="True" Height="25"/>
+
+                <Label Content="Password:" FontSize="13" FontWeight="Bold"/>
+                <TextBox x:Name="txtPassword" IsReadOnly="True" Height="25"/>
+            </StackPanel>
+        </Border>
+
+    </Grid>
+
+</Window>
